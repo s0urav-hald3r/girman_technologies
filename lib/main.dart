@@ -4,7 +4,7 @@ import 'package:girman/app.dart';
 
 Future<void> main() async {
   // ! Add Widgets Binding
-  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
   // ! Await Native Splash
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
