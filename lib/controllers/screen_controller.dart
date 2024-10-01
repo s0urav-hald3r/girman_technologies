@@ -6,6 +6,7 @@ class ScreenController extends GetxController {
   // * ---------------------------------/ Variable Start /------------------------------
 
   final RxInt _screenIndex = 0.obs;
+  final RxBool _loadingWebView = true.obs;
   final _screenItems = ['SEARCH', 'WEBSITE', 'LINKEDIN', 'CONTACT'];
 
   // * ---------------------------------/ Variable End /--------------------------------
@@ -15,6 +16,7 @@ class ScreenController extends GetxController {
   // * ---------------------------------/ Getter Start /------------------------------
 
   int get screenIndex => _screenIndex.value;
+  bool get loadingWebView => _loadingWebView.value;
   List<String> get screenItems => _screenItems;
 
   // * ---------------------------------/ Getter End /--------------------------------
@@ -24,6 +26,7 @@ class ScreenController extends GetxController {
   // * ---------------------------------/ Setter Start /------------------------------
 
   set screenIndex(int index) => _screenIndex.value = index;
+  set loadingWebView(bool status) => _loadingWebView.value = status;
 
   // * ---------------------------------/ Setter End /--------------------------------
 

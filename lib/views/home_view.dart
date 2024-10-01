@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:girman/config/constants.dart';
+import 'package:girman/controllers/screen_controller.dart';
 import 'package:girman/views/components/custom_appbar.dart';
 import 'package:girman/views/search_view.dart';
+import 'package:girman/views/website_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -11,6 +14,8 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final controller = ScreenController.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,12 +31,13 @@ class _HomeViewState extends State<HomeView> {
             colors: [Colors.white, Colors.white, primaryColor.withOpacity(.4)],
           ),
         ),
-        child: const Column(
-          children: [
-            CustomAppBar(),
-            SearchView(),
-          ],
-        ),
+        child: Obx(() => Column(
+              children: [
+                const CustomAppBar(),
+                if (controller.screenIndex == 0) const SearchView(),
+                if (controller.screenIndex == 1) const WebsiteView(),
+              ],
+            )),
       ),
     );
   }
