@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:girman/config/general_bindings.dart';
 import 'package:girman/views/home_view.dart';
 
 class App extends StatelessWidget {
@@ -6,10 +8,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      home: HomeView(),
+      initialBinding: GeneralBindings(),
+      home: const HomeView(),
     );
   }
 }

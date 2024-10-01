@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:girman/app.dart';
 
 Future<void> main() async {
@@ -7,7 +8,7 @@ Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
   // ! Await Native Splash
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // ! Fixed Portrait Orientation
   await SystemChrome.setPreferredOrientations([
@@ -18,5 +19,5 @@ Future<void> main() async {
   runApp(const App());
 
   // ! Remove Native Splash
-  // FlutterNativeSplash.remove();
+  FlutterNativeSplash.remove();
 }

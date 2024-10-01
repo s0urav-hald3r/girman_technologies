@@ -1,6 +1,8 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:girman/config/constants.dart';
+import 'package:girman/controllers/screen_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -8,6 +10,8 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = ScreenController.instance;
+
     return Container(
       width: double.infinity,
       height: 66 + MediaQuery.of(context).padding.top,
@@ -24,37 +28,47 @@ class CustomAppBar extends StatelessWidget {
         children: [
           Image.asset('assets/logos/brand_logo.png', height: 30),
           DropdownButtonHideUnderline(
-            child: DropdownButton2(
-              customButton: const Icon(Icons.menu, size: 30),
-              items: ['SEARCH', 'WEBSITE', 'LINKEDIN', 'CONTACT']
-                  .map(
-                    (item) => DropdownMenuItem(
+            child: Obx(
+              () => DropdownButton2(
+                customButton: const Icon(Icons.menu, size: 30),
+                items: controller.screenItems.map(
+                  (item) {
+                    final ifSelect = controller.screenIndex ==
+                        controller.screenItems.indexOf(item);
+                    return DropdownMenuItem(
                       value: item,
                       child: Text(
                         item,
                         style: GoogleFonts.inter(
                           fontSize: 12,
-                          color: primaryColor,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
+                          color: ifSelect ? primaryColor : Colors.black,
+                          fontWeight:
+                              ifSelect ? FontWeight.bold : FontWeight.normal,
+                          decoration: ifSelect
+                              ? TextDecoration.underline
+                              : TextDecoration.none,
                           decorationColor: primaryColor,
                         ),
                       ),
-                    ),
-                  )
-                  .toList(),
-              onChanged: (value) {},
-              dropdownStyleData: DropdownStyleData(
-                width: 110,
-                maxHeight: 190,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  color: Colors.white,
+                    );
+                  },
+                ).toList(),
+                onChanged: (value) {
+                  controller.screenIndex =
+                      controller.screenItems.indexOf(value!);
+                },
+                dropdownStyleData: DropdownStyleData(
+                  width: 110,
+                  maxHeight: 190,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    color: Colors.white,
+                  ),
+                  offset: const Offset(-80, -5),
                 ),
-                offset: const Offset(-80, -5),
+                menuItemStyleData: const MenuItemStyleData(height: 40),
               ),
-              menuItemStyleData: const MenuItemStyleData(height: 40),
             ),
           ),
         ],
