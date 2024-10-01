@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:girman/config/constants.dart';
 import 'package:girman/views/components/custom_appbar.dart';
+import 'package:girman/views/search_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -15,18 +17,19 @@ class _HomeViewState extends State<HomeView> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
-          image:
-              DecorationImage(image: AssetImage('assets/images/bg_image.png')),
+        decoration: BoxDecoration(
+          image: const DecorationImage(
+              image: AssetImage('assets/images/bg_image.png')),
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.white, Color.fromARGB(188, 144, 202, 249)],
+            colors: [Colors.white, Colors.white, primaryColor.withOpacity(.4)],
           ),
         ),
         child: const Column(
           children: [
             CustomAppBar(),
+            SearchView(),
           ],
         ),
       ),

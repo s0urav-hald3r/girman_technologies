@@ -4,9 +4,7 @@ import 'package:girman/config/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    super.key,
-  });
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +12,11 @@ class CustomAppBar extends StatelessWidget {
       width: double.infinity,
       height: 66 + MediaQuery.of(context).padding.top,
       padding: EdgeInsets.fromLTRB(
-          20, MediaQuery.of(context).padding.top + 20, 20, 20),
+          30, MediaQuery.of(context).padding.top + 20, 30, 20),
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
-          BoxShadow(color: Colors.grey, spreadRadius: 5, blurRadius: 5)
+          BoxShadow(color: greyColor, spreadRadius: 5, blurRadius: 5)
         ],
       ),
       child: Row(
