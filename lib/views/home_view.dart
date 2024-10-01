@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:girman/config/constants.dart';
 import 'package:girman/controllers/screen_controller.dart';
 import 'package:girman/views/components/custom_appbar.dart';
+import 'package:girman/views/linkedin_view.dart';
 import 'package:girman/views/search_view.dart';
 import 'package:girman/views/website_view.dart';
 
@@ -36,6 +37,7 @@ class _HomeViewState extends State<HomeView> {
                 const CustomAppBar(),
                 if (controller.screenIndex == 0) const SearchView(),
                 if (controller.screenIndex == 1) const WebsiteView(),
+                if (controller.screenIndex == 2) const LinkedInView(),
               ],
             )),
       ),
