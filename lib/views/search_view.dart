@@ -72,6 +72,8 @@ class SearchView extends StatelessWidget {
                         RegExp(r'[a-zA-Z]') // Allows only characters
                         ),
                   ],
+                  textCapitalization: TextCapitalization.sentences,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     isCollapsed: true,
                     hintText: 'Search',
