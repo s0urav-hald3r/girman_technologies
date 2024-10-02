@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "722192984616",
+    "project_id": "girman-ace5c",
+    "storage_bucket": "girman-ace5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722192984616:android:8b78386f1622f3b7c8a31d",
+        "android_client_info": {
+          "package_name": "com.example.girman"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp-hnYrXLC3wn01sNKaaYX3q3J3wBSbWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
