@@ -15,9 +15,7 @@ class Utility {
         'Error',
         'Sorry, failed to launch default mail application',
         snackPosition: SnackPosition.BOTTOM,
-        icon: const Icon(
-          Icons.error_rounded,
-        ),
+        icon: const Icon(Icons.error_rounded),
       );
     }
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:girman/config/constants.dart';
 import 'package:girman/controllers/screen_controller.dart';
+import 'package:girman/controllers/user_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchView extends StatelessWidget {
@@ -53,8 +54,10 @@ class SearchView extends StatelessWidget {
               const SizedBox(width: 10),
               Expanded(
                 child: TextField(
+                  controller: UserController.instance.searchController,
                   onSubmitted: (value) {
                     ScreenController.instance.isSerachFieldTapped = true;
+                    UserController.instance.getUsers();
                   },
                   style: GoogleFonts.inter(
                     fontSize: 16,

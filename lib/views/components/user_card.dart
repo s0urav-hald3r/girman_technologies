@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:girman/config/constants.dart';
+import 'package:girman/models/user_model.dart';
 import 'package:girman/views/components/user_detail_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class UserCard extends StatelessWidget {
-  const UserCard({
-    super.key,
-  });
+  final UserModel? user;
+  const UserCard({super.key, this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class UserCard extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            'Sourav Halder',
+            '${user?.firstName ?? 'first_name'} ${user?.lastName ?? 'last_name'}',
             style: GoogleFonts.inter(fontSize: 28, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 5),
@@ -62,7 +62,7 @@ class UserCard extends StatelessWidget {
               ),
               const SizedBox(width: 5),
               Text(
-                'Mumbai',
+                user?.city ?? 'city',
                 style: GoogleFonts.inter(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
@@ -88,7 +88,7 @@ class UserCard extends StatelessWidget {
                       ),
                       const SizedBox(width: 5),
                       Text(
-                        '8609640499',
+                        user?.contactNumber ?? '1234567890',
                         style: GoogleFonts.inter(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -123,15 +123,16 @@ class UserCard extends StatelessWidget {
                         context: context,
                         barrierDismissible: false,
                         builder: (_) {
-                          return const Dialog(
+                          return Dialog(
                             backgroundColor: Colors.white,
-                            insetPadding: EdgeInsets.symmetric(horizontal: 30),
-                            shape: RoundedRectangleBorder(
+                            insetPadding:
+                                const EdgeInsets.symmetric(horizontal: 30),
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(8),
                               ),
                             ),
-                            child: UserDetailCard(),
+                            child: UserDetailCard(user: user!),
                           );
                         });
                   },

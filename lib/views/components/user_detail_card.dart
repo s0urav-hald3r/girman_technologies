@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:girman/models/user_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class UserDetailCard extends StatelessWidget {
-  const UserDetailCard({
-    super.key,
-  });
+  final UserModel? user;
+  const UserDetailCard({super.key, this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class UserDetailCard extends StatelessWidget {
                 ),
               ),
               Text(
-                'Sourav Halder',
+                '${user?.firstName ?? 'first_name'} ${user?.lastName ?? 'last_name'}',
                 style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
@@ -70,7 +70,7 @@ class UserDetailCard extends StatelessWidget {
                 ),
               ),
               Text(
-                'Mumbai',
+                user?.city ?? 'city',
                 style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
@@ -90,7 +90,7 @@ class UserDetailCard extends StatelessWidget {
                 ),
               ),
               Text(
-                '8609640499',
+                user?.contactNumber ?? '1234567890',
                 style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
