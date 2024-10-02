@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:girman/config/constants.dart';
 import 'package:girman/controllers/screen_controller.dart';
 import 'package:girman/controllers/user_controller.dart';
@@ -66,6 +67,11 @@ class SearchView extends StatelessWidget {
                   ),
                   cursorColor: greyColor,
                   cursorHeight: 20,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(
+                        RegExp(r'[a-zA-Z]') // Allows only characters
+                        ),
+                  ],
                   decoration: InputDecoration(
                     isCollapsed: true,
                     hintText: 'Search',
