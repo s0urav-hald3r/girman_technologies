@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:girman/config/constants.dart';
+import 'package:girman/views/components/user_detail_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class UserCard extends StatelessWidget {
@@ -11,7 +12,6 @@ class UserCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      // height: 235,
       margin: const EdgeInsets.fromLTRB(30, 0, 30, 20),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -43,7 +43,7 @@ class UserCard extends StatelessWidget {
                 decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: AssetImage('assets/images/place_holder.jpg'))),
+                        image: AssetImage('assets/images/place_holder.png'))),
               ),
             ),
           ),
@@ -118,7 +118,23 @@ class UserCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(6),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (_) {
+                          return const Dialog(
+                            backgroundColor: Colors.white,
+                            insetPadding: EdgeInsets.symmetric(horizontal: 30),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(8),
+                              ),
+                            ),
+                            child: UserDetailCard(),
+                          );
+                        });
+                  },
                   child: Text(
                     'Fetch Details',
                     style: GoogleFonts.inter(
