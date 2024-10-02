@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:girman/config/constants.dart';
 import 'package:girman/controllers/screen_controller.dart';
+import 'package:girman/utils/utility.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -56,12 +56,7 @@ class CustomAppBar extends StatelessWidget {
                 ).toList(),
                 onChanged: (value) async {
                   if (controller.screenItems.last == value!) {
-                    final Uri emailLaunchUri =
-                        Uri(scheme: 'mailto', path: supportMail);
-                    if (!await launchUrl(emailLaunchUri,
-                        mode: LaunchMode.externalApplication)) {
-                      throw Exception('Could not launch mail app');
-                    }
+                    Utility.openMailApp();
                     return;
                   }
 
