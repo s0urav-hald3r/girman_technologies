@@ -74,6 +74,7 @@ class SearchView extends StatelessWidget {
                   ],
                   textCapitalization: TextCapitalization.sentences,
                   keyboardType: TextInputType.name,
+                  textInputAction: TextInputAction.search,
                   decoration: InputDecoration(
                     isCollapsed: true,
                     hintText: 'Search',
